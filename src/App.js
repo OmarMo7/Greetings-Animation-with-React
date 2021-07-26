@@ -31,10 +31,16 @@ function App() {
     "te-example6",
     "te-example7"
   ]
-
+  const Imgs = [
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg",
+    "images/5.jpg"
+  ]
   return (
     <div className="App">
-      <Transition random={randomNumber} Trans={Trans} />
+      <Transition random={randomNumber} Trans={Trans} Imgs={Imgs} />
     </div>
   );
 }
