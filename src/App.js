@@ -1,9 +1,6 @@
-import Transition from './components/Transition';
+import Container from './components/Container';
 
 function App() {
-  function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
   const Trans = [
     "te-flip1",
     "te-flip2",
@@ -40,7 +37,7 @@ function App() {
   ]
   return (
     <div className="App">
-      <Transition random={randomNumber} Trans={Trans} Imgs={Imgs} />
+      <Container Trans={Trans} Imgs={Imgs} />
     </div>
   );
 }
