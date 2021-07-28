@@ -1,4 +1,9 @@
 import Container from './components/Container';
+import img1 from '../src/images/1.jpg'
+import img2 from '../src/images/2.jpg'
+import img3 from '../src/images/3.jpg'
+import img4 from '../src/images/4.jpg'
+import img5 from '../src/images/5.jpg'
 
 function App() {
   const Trans = [
@@ -29,11 +34,11 @@ function App() {
     "te-example7"
   ]
   const Imgs = [
-    "images/1.jpg",
-    "images/2.jpg",
-    "images/3.jpg",
-    "images/4.jpg",
-    "images/5.jpg"
+    img1,
+    img2,
+    img3,
+    img4,
+    img5
   ]
   return (
     <div className="App">
