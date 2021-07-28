@@ -1,0 +1,179 @@
+.te-perspective {
+  perspective: 1000;
+}
+/*******************************************************/
+/****************** Cube Effects ***********************/
+/*******************************************************/
+.te-cover,
+.te-transition {
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 329px;
+  height: 425px;
+  top: 0px;
+  left: 0px;
+}
+.te-cover.te-hide,
+.te-transition,
+.te-images {
+  display: none;
+}
+.te-transition.te-show {
+  display: block;
+}
+.te-cube-face {
+  position: absolute;
+  width: 329px;
+  height: 425px;
+  display: block;
+  overflow: hidden;
+}
+.te-back,
+.te-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.te-front {
+  z-index: 2;
+}
+.te-back {
+  z-index: 1;
+}
+/***************** Cube1 ********************/
+.te-cube1 .te-cube-front {
+  transform: scale3d(0.825, 0.825, 0.825) translate3d(0, 0, 212px);
+}
+.te-cube1 .te-cube-top {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(1, 0, 0, 90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube1 .te-cube-bottom {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(1, 0, 0, -90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube1 .te-cube-right {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(0, 1, 0, 90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube1 .te-cube-left {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube1.te-show {
+  animation: cube1 1.2s ease-in-out;
+}
+@keyframes cube1 {
+  0% {
+    transform: rotate3d(1, 0, 0, 0);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, -90deg);
+  }
+}
+/***************** Cube2 ********************/
+.te-cube2 .te-cube-front {
+  transform: scale3d(0.825, 0.825, 0.825) translate3d(0, 0, 212px);
+}
+.te-cube2 .te-cube-bottom {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(1, 0, 0, -90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube2 .te-cube-top {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(1, 0, 0, 90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube2 .te-cube-right {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(0, 1, 0, 90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube2 .te-cube-left {
+  transform: scale3d(0.825, 0.825, 0.825) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 212px);
+}
+.te-cube2.te-show {
+  animation: cube2 1.2s ease-in-out;
+}
+@keyframes cube2 {
+  0% {
+    transform: rotate3d(1, 0, 0, 0);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 90deg);
+  }
+}
+/***************** Cube3 ********************/
+.te-cube3 .te-cube-front {
+  transform: scale3d(0.858, 0.858, 0.858) translate3d(0, 0, 164px);
+}
+.te-cube3 .te-cube-right {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, 90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube3 .te-cube-left {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube3 .te-cube-top {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(1, 0, 0, 90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube3 .te-cube-bottom {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube3.te-show {
+  animation: cube3 1s ease-in-out;
+}
+@keyframes cube3 {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  40% {
+    transform: rotate3d(0, 1, 0, -100deg);
+  }
+  60% {
+    transform: rotate3d(0, 1, 0, -84deg);
+  }
+  80% {
+    transform: rotate3d(0, 1, 0, -90deg);
+  }
+  95% {
+    transform: rotate3d(0, 1, 0, -88deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, -90deg);
+  }
+}
+/***************** Cube4 ********************/
+.te-cube4 .te-cube-front {
+  transform: scale3d(0.858, 0.858, 0.858) translate3d(0, 0, 164px);
+}
+.te-cube4 .te-cube-left {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube4 .te-cube-right {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, 90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube4 .te-cube-top {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(1, 0, 0, 90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube4 .te-cube-bottom {
+  transform: scale3d(0.858, 0.858, 0.858) rotate3d(0, 1, 0, -90deg)
+    translate3d(0, 0, 164px);
+}
+.te-cube4.te-show {
+  animation: cube4 1.2s ease-in-out;
+}
+@keyframes cube4 {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+}
