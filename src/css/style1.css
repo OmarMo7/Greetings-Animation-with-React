@@ -110,6 +110,6 @@
     transform: rotate3d(0, 1, 0, 0);
   }
   100% {
-    transform: rotate3d(0, 1, 0, -180deg) translate3d(333px, 0, 0);
+    transform: rotate3d(0, 1, 0, -180deg) translate3d+(333px, 0, 0);
   }
 }
