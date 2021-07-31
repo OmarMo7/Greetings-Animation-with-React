@@ -9,21 +9,33 @@ import Shadow from './Shadow';
 // import '../css/style5.css'
 
 
-
 class Wrapper extends Component {
 
-  state = {
-    randNum: 0,
-    last: 0,
-    current: 0,
-    indexFrom: 0,
-    stylesheets: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      counter: 0,
+      randNum: 0,
+      last: 0,
+      current: 0,
+      indexFrom: 0,
+      stylesheets: []
+    }
   }
+
+
 
 
   showNext = () => {
     document.querySelector('.te-transition').classList.add('te-show')
     document.querySelector('.te-cover').classList.add('te-hide')
+  }
+
+  handleClassAdding = () => {
+    document.querySelector('.te-container').addEventListener('animationend', () => {
+      document.querySelector('.te-cover').classList.remove('te-hide')
+      document.querySelector('.te-transition').classList.remove('te-show')
+    })
   }
 
   // 0 -- 3 ---> flip
@@ -33,41 +45,20 @@ class Wrapper extends Component {
   // 16 -- 17 ---> unfold
 
   componentDidMount() {
-    var arr = [2, 5, 9, 12]
+
     setInterval(() => {
+      var arr = [1, 4, 6, 9]
       this.setState({
-        randNum: this.randomNumber(arr, arr.length)
+        counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
+        randNum: arr[this.state.counter]
       })
+
       this.showNext()
-      document.querySelector('.te-container').addEventListener('animationend', () => {
-        document.querySelector('.te-cover').classList.remove('te-hide')
-        document.querySelector('.te-transition').classList.remove('te-show')
-      })
-      const transName = this.props.Trans[this.state.randNum]
-        .slice(0, -1);
-      import('../css/style1.css').then(() => {
-        import('../css/style2.css').then(() => {
-          import('../css/style3.css').then(() => {
-            import('../css/style4.css').then(() => {
-              import('../css/style5.css')
-            })
-          })
-        })
-      })
-      this.importFile(transName)
-      var styles = [...document.styleSheets]
-      this.setState({
-        stylesheets: styles.filter((style, index) => {
-          if (index >= this.state.indexFrom) {
-            return style
-          }
-          return null
-        })
-      })
+      this.handleClassAdding()
+      this.importFile()
       this.updateImages()
     }, 4000)
   }
-
 
   randomNumber = (arr, arrLength) => {
     return arr[Math.floor(Math.random() * arrLength)];
@@ -80,9 +71,9 @@ class Wrapper extends Component {
       this.setState({ last: this.state.current, current: this.state.current + 1 })
   }
 
-
-
-  importFile = (transName) => {
+  importFile = () => {
+    const transName = this.props.Trans[this.state.randNum]
+      .slice(0, -1);
 
     if (this.state.indexFrom === 0) {
 
@@ -90,8 +81,28 @@ class Wrapper extends Component {
 
     }
 
+    if (this.state.stylesheets.length < 5) {
+      import('../css/style1.css').then(() => {
+        import('../css/style2.css').then(() => {
+          import('../css/style3.css').then(() => {
+            import('../css/style4.css').then(() => {
+              import('../css/style5.css')
+            })
+          })
+        })
+      })
+    }
 
 
+    var styles = [...document.styleSheets]
+    this.setState({
+      stylesheets: styles.filter((style, index) => {
+        if (index >= this.state.indexFrom) {
+          return style
+        }
+        return null
+      })
+    })
     switch (transName) {
       case 'te-flip':
         this.state.stylesheets.filter((sheet, index) => {
@@ -106,8 +117,6 @@ class Wrapper extends Component {
         break;
       case 'te-rotation':
         this.state.stylesheets.filter((sheet, index) => {
-          console.log(index)
-          console.log(this.state.stylesheets[1])
           if (index !== 1) {
             sheet.disabled = true
           }
@@ -155,11 +164,12 @@ class Wrapper extends Component {
         break;
     }
 
+    this.state.stylesheets.forEach(sheet => { console.log(sheet.disabled) })
+
   }
 
-
   componentDidUpdate() {
-    console.log(this.state.stylesheets)
+
   }
   render() {
 
