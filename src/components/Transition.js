@@ -3,12 +3,15 @@ import React, { Component } from 'react'
 
 class Transition extends Component {
 
-  state = {
-    randNum: 0,
-    transName: "",
-    transType: "",
-    last: 0,
-    current: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      randNum: 0,
+      transName: "te-flip",
+      transType: "2",
+      last: this.props.last,
+      current: this.props.current
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -20,6 +23,7 @@ class Transition extends Component {
       last: props.last
     }
   }
+  
 
 
   componentDidMount() {
