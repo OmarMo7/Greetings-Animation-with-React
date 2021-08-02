@@ -17,9 +17,7 @@ class Wrapper extends Component {
       counter: 0,
       randNum: 0,
       last: 0,
-      current: 0,
-      indexFrom: 0,
-      stylesheets: []
+      current: 0
     }
   }
 
@@ -27,15 +25,81 @@ class Wrapper extends Component {
 
 
   showNext = () => {
-    document.querySelector('.te-transition').classList.add('te-show')
     document.querySelector('.te-cover').classList.add('te-hide')
+    document.querySelector('.te-transition').classList.add('te-show')
   }
 
   handleClassAdding = () => {
     document.querySelector('.te-container').addEventListener('animationend', () => {
-      document.querySelector('.te-cover').classList.remove('te-hide')
       document.querySelector('.te-transition').classList.remove('te-show')
+      document.querySelector('.te-cover').classList.remove('te-hide')
     })
+  }
+
+  importFile = () => {
+    const transName = this.props.Trans[this.state.randNum]
+      .slice(0, -1);
+
+    var stylesheets = [...document.styleSheets].slice(0, 5)
+    console.log(stylesheets)
+    switch (transName) {
+      case 'te-flip':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== 'http://localhost:3000/css/style1.css') {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
+      case 'te-rotation':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== 'http://localhost:3000/css/style2.css') {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
+      case 'te-multiflip':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== 'http://localhost:3000/css/style3.css') {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
+      case 'te-cube':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== 'http://localhost:3000/css/style4.css') {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
+      case 'te-unfold':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== 'http://localhost:3000/css/style5.css') {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
+
+      default:
+        break;
+    }
+
+    stylesheets.forEach(sheet => { console.log(sheet.disabled) })
+
   }
 
   // 0 -- 3 ---> flip
@@ -47,15 +111,14 @@ class Wrapper extends Component {
   componentDidMount() {
 
     setInterval(() => {
-      var arr = [1, 4, 6, 9]
+      var arr = [1, 2, 4, 9, 16, 16, 17, 16]
       this.setState({
         counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
         randNum: arr[this.state.counter]
       })
-
+      this.importFile()
       this.showNext()
       this.handleClassAdding()
-      this.importFile()
       this.updateImages()
     }, 4000)
   }
@@ -71,122 +134,25 @@ class Wrapper extends Component {
       this.setState({ last: this.state.current, current: this.state.current + 1 })
   }
 
-  importFile = () => {
-    const transName = this.props.Trans[this.state.randNum]
-      .slice(0, -1);
-
-    if (this.state.indexFrom === 0) {
-
-      this.setState({ indexFrom: document.styleSheets.length })
-
-    }
-
-    if (this.state.stylesheets.length < 5) {
-      import('../css/style1.css').then(() => {
-        import('../css/style2.css').then(() => {
-          import('../css/style3.css').then(() => {
-            import('../css/style4.css').then(() => {
-              import('../css/style5.css')
-            })
-          })
-        })
-      })
-    }
 
 
-    var styles = [...document.styleSheets]
-    this.setState({
-      stylesheets: styles.filter((style, index) => {
-        if (index >= this.state.indexFrom) {
-          return style
-        }
-        return null
-      })
-    })
-    switch (transName) {
-      case 'te-flip':
-        this.state.stylesheets.filter((sheet, index) => {
-          if (index !== 0) {
-            sheet.disabled = true
-          }
-          else {
-            sheet.disabled = false
-          }
-          return sheet
-        })
-        break;
-      case 'te-rotation':
-        this.state.stylesheets.filter((sheet, index) => {
-          if (index !== 1) {
-            sheet.disabled = true
-          }
-          else {
-            sheet.disabled = false
-          }
-          return sheet
-        })
-        break;
-      case 'te-multiflip':
-        this.state.stylesheets.filter((sheet, index) => {
-          if (index !== 2) {
-            sheet.disabled = true
-          }
-          else {
-            sheet.disabled = false
-          }
-          return sheet
-        })
-        break;
-      case 'te-cube':
-        this.state.stylesheets.filter((sheet, index) => {
-          if (index !== 3) {
-            sheet.disabled = true
-          }
-          else {
-            sheet.disabled = false
-          }
-          return sheet
-        })
-        break;
-      case 'te-unfold':
-        this.state.stylesheets.filter((sheet, index) => {
-          if (index !== 4) {
-            sheet.disabled = true
-          }
-          else {
-            sheet.disabled = false
-          }
-          return sheet
-        })
-        break;
 
-      default:
-        break;
-    }
-
-    this.state.stylesheets.forEach(sheet => { console.log(sheet.disabled) })
-
-  }
-
-  componentDidUpdate() {
-
-  }
   render() {
 
     const Trans = this.props.Trans
     const Imgs = this.props.Imgs
-    const ImgsLength = Imgs.length
-
     const transName = Trans[this.state.randNum]
       .slice(0, -1);
+    const transType = Trans[this.state.randNum]
+      .slice(-1, Trans.length)
 
     return (
       <div className="te-wrapper">
 
         <Cover Imgs={Imgs} current={this.state.current} />
         <Shadow />
-        <Transition lenth={ImgsLength} transName={transName} randNum={this.state.randNum}
-          transType={Trans[this.state.randNum].slice(-1, Trans.length)} Trans={Trans} Imgs={Imgs} last={this.state.last} current={this.state.current} />
+        <Transition transName={transName} randNum={this.state.randNum}
+          transType={transType} Trans={Trans} Imgs={Imgs} last={this.state.last} current={this.state.current} />
       </div>
     )
   }
