@@ -40,6 +40,7 @@ class Wrapper extends Component {
     const transName = this.props.Trans[this.state.randNum]
       .slice(0, -1);
 
+    //TODO: filter the document stylesheets to get the exact desired files based on href attr
     var stylesheets = [...document.styleSheets].slice(0, 5)
     console.log(stylesheets)
     switch (transName) {
