@@ -23,7 +23,7 @@ class Transition extends Component {
       last: props.last
     }
   }
-  
+
 
 
   componentDidMount() {
@@ -38,10 +38,10 @@ class Transition extends Component {
           <div className={"te-transition te-flip" + this.state.transType}>
             <div className="te-card">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}>
                 </img>
               </div>
             </div>
@@ -51,10 +51,10 @@ class Transition extends Component {
         return (
           <div className={"te-transition te-rotation" + this.state.transType}>
             <div className="te-front">
-              <img alt="" src={this.props.Imgs[this.state.last]}></img>
+              <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
             </div>
             <div className="te-back">
-              <img alt="" src={this.props.Imgs[this.state.current]}></img>
+              <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
           </div>
         )
@@ -63,58 +63,58 @@ class Transition extends Component {
           <div className={"te-transition te-multiflip" + this.state.transType}>
             <div className="te-card te-flip1">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip2">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip3">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip4">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip5">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip6">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
             <div className="te-card te-flip7">
               <div className="te-front">
-                <img alt="" src={this.props.Imgs[this.state.last]}></img>
+                <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
               </div>
               <div className="te-back">
-                <img alt="" src={this.props.Imgs[this.state.current]}></img>
+                <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
               </div>
             </div>
           </div>
@@ -122,36 +122,36 @@ class Transition extends Component {
       case 'te-cube':
         return (
           <div className={"te-transition te-cube" + this.state.transType}>
-            <div className="te-cube-front te-cube-face te-front"><img alt="" src={this.props.Imgs[this.state.last]}></img></div>
-            <div className="te-cube-top te-cube-face te-back"><img alt="" src={this.props.Imgs[this.state.current]}></img>
+            <div className="te-cube-front te-cube-face te-front"><img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img></div>
+            <div className="te-cube-top te-cube-face te-back"><img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
-            <div className="te-cube-bottom te-cube-face te-back"><img alt="" src={this.props.Imgs[this.state.current]}></img>
+            <div className="te-cube-bottom te-cube-face te-back"><img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
-            <div className="te-cube-right te-cube-face te-back"><img alt="" src={this.props.Imgs[this.state.current]}></img>
+            <div className="te-cube-right te-cube-face te-back"><img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
-            <div className="te-cube-left te-cube-face te-back"><img alt="" src={this.props.Imgs[this.state.current]}></img>
+            <div className="te-cube-left te-cube-face te-back"><img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
           </div>
         )
       case 'te-unfold':
         return (
           <div className={"te-transition te-unfold" + this.state.transType}>
-            <div className="te-front te-front1"><img alt="" src={this.props.Imgs[this.state.last]}></img>
+            <div className="te-front te-front1"><img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
             </div>
             <div className="te-front te-front2">
-              <img alt="" src={this.props.Imgs[this.state.last]}></img>
+              <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
             </div>
             <div className="te-front te-front3">
-              <img alt="" src={this.props.Imgs[this.state.last]}></img>
+              <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
             </div>
             <div className="te-back te-back1">
-              <img alt="" src={this.props.Imgs[this.state.current]}></img>
+              <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
             <div className="te-back te-back2">
-              <img alt="" src={this.props.Imgs[this.state.current]}></img>
+              <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
             <div className="te-back te-back3">
-              <img alt="" src={this.props.Imgs[this.state.current]}></img>
+              <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
             </div>
           </div>
         )
