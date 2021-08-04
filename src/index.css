@@ -66,8 +66,9 @@ a {
   width: 373px;
   height: 470px;
   margin-left: -186px;
-  background: transparent url(./images/shadow.png) no-repeat center bottom;
+  background: transparent url(./shadow.png) no-repeat center bottom;
   border-radius: 22%;
+  z-index: -1;
 }
 
 /*To be add by JS*/
