@@ -1,9 +1,5 @@
 import Container from './components/Container';
-import img1 from '../src/images/1.jpg'
-import img2 from '../src/images/2.jpg'
-import img3 from '../src/images/3.jpg'
-import img4 from '../src/images/4.jpg'
-import img5 from '../src/images/5.jpg'
+//TODO: Justa get the string value of src instead of processing the whole img tag in index.html
 
 function App() {
   const Trans = [
@@ -33,13 +29,19 @@ function App() {
     "te-example6",
     "te-example7"
   ]
-  const Imgs = [
-    img1,
-    img2,
-    img3,
-    img4,
-    img5
-  ]
+
+  var All_Imgs = document.querySelectorAll('.img-transition')
+  var Imgs = []
+  All_Imgs.forEach(Img => {
+    var content = {
+      img: Img.src,
+      width: 329,
+      height: 425
+    };
+    Imgs.push(content)
+  })
+
+
   return (
     <div className="App">
       <Container Trans={Trans} Imgs={Imgs} />
