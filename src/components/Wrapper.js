@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Transition from './Transition';
-import Cover from './Cover';
+import Cover from '../Cover';
 import Shadow from './Shadow';
 // import '../css/style1.css'
 // import '../css/style2.css'
@@ -112,7 +112,7 @@ class Wrapper extends Component {
   componentDidMount() {
 
     setInterval(() => {
-      var arr = [1, 2, 4, 9, 16, 16, 17, 16]
+      var arr = [9, 10]
       this.setState({
         counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
         randNum: arr[this.state.counter]
@@ -146,6 +146,7 @@ class Wrapper extends Component {
       .slice(0, -1);
     const transType = Trans[this.state.randNum]
       .slice(-1, Trans.length)
+    console.log(Imgs[this.state.current])
 
     return (
       <div className="te-wrapper">
