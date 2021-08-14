@@ -112,7 +112,7 @@ class Wrapper extends Component {
   componentDidMount() {
 
     setInterval(() => {
-      var arr = [9, 10]
+      var arr = [1, 4, 6, 8, 11, 14, 16, 17]
       this.setState({
         counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
         randNum: arr[this.state.counter]
