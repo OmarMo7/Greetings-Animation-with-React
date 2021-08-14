@@ -1,4 +1,4 @@
-import Container from './components/Container';
+import Form from './components/Form';
 //TODO: Justa get the string value of src instead of processing the whole img tag in index.html
 
 function App() {
@@ -44,7 +44,8 @@ function App() {
 
   return (
     <div className="App">
-      <Container Trans={Trans} Imgs={Imgs} />
+      {/* <Container Trans={Trans} Imgs={Imgs} /> */}
+      <Form Trans={Trans} Imgs={Imgs} />
     </div>
   );
 }
