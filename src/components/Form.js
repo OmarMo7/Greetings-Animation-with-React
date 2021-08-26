@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Container from './Container';
+// import Container from './Container';
+import { Redirect } from "react-router-dom";
 
 
 class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      redirect: null,
       username: "",
       password: ""
     }
@@ -20,13 +22,12 @@ class Form extends Component {
       username: userInput.value,
       password: passInput.value
     })
+    this.setState({ redirect: "/user" });
   }
 
   render() {
     if (this.state.username === "Zezo" && this.state.password === "zzz") {
-      return (
-        <Container Trans={this.props.Trans} Imgs={this.props.Imgs} />
-      )
+      return <Redirect to={this.state.redirect} />
     }
     else {
       return (
