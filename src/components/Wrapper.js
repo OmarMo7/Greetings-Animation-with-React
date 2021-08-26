@@ -46,7 +46,7 @@ class Wrapper extends Component {
     switch (transName) {
       case 'te-flip':
         stylesheets.forEach((stylesheet) => {
-          if (stylesheet.href !== 'http://localhost:3000/css/style1.css') {
+          if (stylesheet.href !== stylesheets[0].href) {
             stylesheet.disabled = true
           }
           else {
@@ -56,7 +56,7 @@ class Wrapper extends Component {
         break;
       case 'te-rotation':
         stylesheets.forEach((stylesheet) => {
-          if (stylesheet.href !== 'http://localhost:3000/css/style2.css') {
+          if (stylesheet.href !== stylesheets[1].href) {
             stylesheet.disabled = true
           }
           else {
@@ -66,7 +66,7 @@ class Wrapper extends Component {
         break;
       case 'te-multiflip':
         stylesheets.forEach((stylesheet) => {
-          if (stylesheet.href !== 'http://localhost:3000/css/style3.css') {
+          if (stylesheet.href !== stylesheets[2].href) {
             stylesheet.disabled = true
           }
           else {
@@ -76,7 +76,7 @@ class Wrapper extends Component {
         break;
       case 'te-cube':
         stylesheets.forEach((stylesheet) => {
-          if (stylesheet.href !== 'http://localhost:3000/css/style4.css') {
+          if (stylesheet.href !== stylesheets[3].href) {
             stylesheet.disabled = true
           }
           else {
@@ -86,7 +86,7 @@ class Wrapper extends Component {
         break;
       case 'te-unfold':
         stylesheets.forEach((stylesheet) => {
-          if (stylesheet.href !== 'http://localhost:3000/css/style5.css') {
+          if (stylesheet.href !== stylesheets[4].href) {
             stylesheet.disabled = true
           }
           else {
