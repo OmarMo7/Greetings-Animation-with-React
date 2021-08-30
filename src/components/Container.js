@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
+// import { Redirect } from "react-router-dom";
+
 
 
 class Container extends Component {
@@ -45,18 +47,24 @@ class Container extends Component {
 
     this.state = {
       Trans,
-      Imgs
+      Imgs,
+      isUser: this.props.isUser
     }
   }
 
-
   render() {
+    // let isUser = this.state.isUser
+    // if (!isUser) {
+    //   console.log(isUser)
+    //   return <Redirect to="/" />;
+    // }
     return (
       <div className="te-container">
         <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} />
       </div>
     )
   }
+
 }
 
 export default Container
