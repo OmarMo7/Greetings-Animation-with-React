@@ -11,10 +11,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path='/'>
-            <Form isUser={false} />
+            <Form />
           </Route>
           <Route path='/user'>
-            <Container isUser={false} />
+            <Container />
           </Route>
         </Switch>
       </BrowserRouter>

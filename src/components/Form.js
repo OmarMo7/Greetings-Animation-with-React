@@ -6,7 +6,7 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isUser: this.props.isUser,
+      isUser: false,
       username: "",
       password: ""
     }
@@ -17,7 +17,9 @@ class Form extends Component {
     const { username, password } = this.state;
 
     if (!(username === 'Zezo' && password === 'zzz')) {
-      return this.setState({ isUser: true });
+      localStorage.setItem("Name", "Zezo")
+      localStorage.setItem("Password", "zzz")
+      this.setState({ isUser: true })
     }
   }
 
