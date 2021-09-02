@@ -41,8 +41,7 @@ class Wrapper extends Component {
       .slice(0, -1);
 
     //TODO: filter the document stylesheets to get the exact desired files based on href attr
-    var stylesheets = [...document.styleSheets].slice(0, 5)
-    console.log(stylesheets)
+    var stylesheets = [...document.styleSheets].slice(0, 6)
     switch (transName) {
       case 'te-flip':
         stylesheets.forEach((stylesheet) => {
@@ -94,12 +93,22 @@ class Wrapper extends Component {
           }
         })
         break;
+      case 'te-example':
+        stylesheets.forEach((stylesheet) => {
+          if (stylesheet.href !== stylesheets[5].href) {
+            stylesheet.disabled = true
+          }
+          else {
+            stylesheet.disabled = false
+          }
+        })
+        break;
 
       default:
         break;
     }
 
-    stylesheets.forEach(sheet => { console.log(sheet.disabled) })
+    stylesheets.forEach(sheet => { console.log(sheet) })
 
   }
 
@@ -112,7 +121,7 @@ class Wrapper extends Component {
   componentDidMount() {
 
     setInterval(() => {
-      var arr = [1, 4, 6, 8, 11, 14, 16, 17]
+      var arr = [1, 4, 7, 20]
       this.setState({
         counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
         randNum: arr[this.state.counter]
@@ -146,7 +155,6 @@ class Wrapper extends Component {
       .slice(0, -1);
     const transType = Trans[this.state.randNum]
       .slice(-1, Trans.length)
-    console.log(Imgs[this.state.current])
 
     return (
       <div className="te-wrapper">

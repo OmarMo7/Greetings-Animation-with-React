@@ -155,6 +155,18 @@ class Transition extends Component {
             </div>
           </div>
         )
+
+      case "te-example":
+        return (
+          <div className={"te-transition te-example" + this.state.transType}>
+            <div className="te-front">
+              <img style={{ width: this.props.Imgs[this.state.last].width, height: this.props.Imgs[this.state.last].height }} alt="" src={this.props.Imgs[this.state.last].img}></img>
+            </div>
+            <div className="te-back">
+              <img style={{ width: this.props.Imgs[this.state.current].width, height: this.props.Imgs[this.state.current].height }} alt="" src={this.props.Imgs[this.state.current].img}></img>
+            </div>
+          </div>
+        )
       default:
         return null
     }
