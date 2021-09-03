@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import Wrapper from './Wrapper'
 import { Redirect } from "react-router-dom";
 
-// import { Redirect } from "react-router-dom";
-
-
-
 class Container extends Component {
   constructor(props) {
     super(props);

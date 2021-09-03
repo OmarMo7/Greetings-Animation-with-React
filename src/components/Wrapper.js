@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import Transition from './Transition';
 import Cover from '../Cover';
 import Shadow from './Shadow';
-// import '../css/style1.css'
-// import '../css/style2.css'
-// import '../css/style3.css'
-// import '../css/style4.css'
-// import '../css/style5.css'
-
 
 class Wrapper extends Component {
 
@@ -20,9 +14,6 @@ class Wrapper extends Component {
       current: 0
     }
   }
-
-
-
 
   showNext = () => {
     document.querySelector('.te-cover').classList.add('te-hide')
@@ -40,7 +31,6 @@ class Wrapper extends Component {
     const transName = this.props.Trans[this.state.randNum]
       .slice(0, -1);
 
-    //TODO: filter the document stylesheets to get the exact desired files based on href attr
     var stylesheets = [...document.styleSheets].slice(0, 6)
     switch (transName) {
       case 'te-flip':
@@ -107,21 +97,21 @@ class Wrapper extends Component {
       default:
         break;
     }
-
-    stylesheets.forEach(sheet => { console.log(sheet) })
-
   }
 
-  // 0 -- 3 ---> flip
-  // 4 -- 8 ---> rotate
-  // 9 -- 11 ---> multiflip
-  // 12 -- 15 ---> cube
-  // 16 -- 17 ---> unfold
+  /**
+   * Animations Indexes
+   0 -- 3 ---> flip
+   4 -- 8 ---> rotate
+   9 -- 11 ---> multiflip
+   12 -- 15 ---> cube
+   16 -- 17 ---> unfold
+   */
 
   componentDidMount() {
 
     setInterval(() => {
-      var arr = [1, 4, 7, 20]
+      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
       this.setState({
         counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
         randNum: arr[this.state.counter]
@@ -143,6 +133,7 @@ class Wrapper extends Component {
       this.setState({ current: 0, last: ImgsLength - 1 }) :
       this.setState({ last: this.state.current, current: this.state.current + 1 })
   }
+
 
 
 
