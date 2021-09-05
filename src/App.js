@@ -16,10 +16,12 @@ class App extends Component {
   }
 
   handleSubmit = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data
-    })
+    if (data.username === "Zezo" && data.password === "zzz") {
+      this.setState({
+        isLoggedIn: true,
+        user: data
+      })
+    }
   }
 
   render() {
@@ -29,7 +31,7 @@ class App extends Component {
           <Switch>
             <Route exact
               path={'/'}
-              render={props => (<Form {...props} handleSuccessfulAuth={this.handleSubmit} isLoggedIn={this.state.isLoggedIn} />)}
+              render={props => (<Form {...props} handleSuccessfulAuth={this.handleSubmit} />)}
             />
             <Route exact
               path={'/user'}

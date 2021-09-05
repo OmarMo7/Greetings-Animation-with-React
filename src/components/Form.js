@@ -21,37 +21,46 @@ class Form extends Component {
   }
 
 
+  componentDidMount() {
+
+  }
+
+
   handleSubmit = (e) => {
 
     const { username, password } = this.state;
 
-    axios.post("http://localhost:3000", {
-      user: {
-        username: username,
-        password: password
-      }
-    },
-      { withCredentials: true }
-    ).then(res => {
-      console.log("This is the response", res)
-      this.props.handleSubmit(res.data)
-      this.props.history.push("/user")
-    }).catch(err => {
-      console.log("This is the error", err)
-    })
+
+    // axios.post("http://localhost:3000", {
+    //   user: {
+    //     username: username,
+    //     password: password
+    //   }
+    // },
+    //   { withCredentials: true }
+    // ).then(res => {
+    //   console.log("This is the response", res)
+    // }).catch(err => {
+    //   console.log("This is the error", err)
+    // })
+    const data = {
+      username,
+      password
+    }
+    axios.get("http://localhost:3000")
+      .then(res => {
+        if (data.username === "Zezo" && data.password === "zzz") {
+          this.props.handleSuccessfulAuth(data)
+          this.props.history.push("/user")
+        }
+        console.log(res)
+      })
+
+
     e.preventDefault();
-    // if (!(username === 'Zezo' && password === 'zzz')) {
-    //   localStorage.setItem("Name", "Zezo")
-    //   localStorage.setItem("Password", "zzz")
-    //   this.setState({ isUser: true })
-    // }
   }
 
   render() {
-    // if (this.state.isUser) {
-    //   console.log(this.state.isUser)
-    //   return <Redirect to="/user" />;
-    // }
     return (
       <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
         <div className="form" id="formContainer">
