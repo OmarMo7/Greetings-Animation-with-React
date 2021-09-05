@@ -24,6 +24,17 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    window.onpopstate = () => {
+      console.log("triggered")
+      this.setState({
+        isLoggedIn: false,
+        user: {}
+      })
+    }
+  }
+
+
   render() {
     return (
       <div className="App">

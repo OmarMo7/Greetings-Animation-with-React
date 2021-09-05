@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 class Container extends Component {
   constructor(props) {
@@ -47,7 +47,6 @@ class Container extends Component {
       Trans,
       Imgs,
       isLoggedIn: this.props.isLoggedIn
-      // isUser: localStorage.getItem("Name") && localStorage.getItem("Password") ? true : false
     }
   }
 
@@ -64,24 +63,20 @@ class Container extends Component {
   //   this.props.history.push("/user")
   // }
 
-  shouldComponentUpdate() {
-    let isUser = this.state.isLoggedIn
-    if (!isUser) {
-      console.log("worked")
-      return false
-    }
-    return true
-  }
+  // shouldComponentUpdate() {
+  //   let isUser = this.state.isLoggedIn
+  //   if (!isUser) {
+  //     console.log("worked")
+  //     return false
+  //   }
+  //   return true
+  // }
 
   render() {
-    let isUser = this.state.isLoggedIn
-    if (!isUser) {
-      console.log(isUser)
-      return <Redirect to="/" />;
-    }
+
     return (
       <div className="te-container">
-        <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} />
+        <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} isLoggedIn={this.state.isLoggedIn} />
       </div>
     )
   }
