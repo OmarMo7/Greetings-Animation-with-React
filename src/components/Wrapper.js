@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Transition from './Transition';
 import Cover from '../Cover';
 import Shadow from './Shadow';
+import { Redirect } from 'react-router';
 
 class Wrapper extends Component {
 
@@ -110,16 +111,22 @@ class Wrapper extends Component {
 
   componentDidMount() {
 
-    setInterval(() => {
-      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
-      this.setState({
-        counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
-        randNum: arr[this.state.counter]
-      })
-      this.importFile()
-      this.showNext()
-      this.handleClassAdding()
-      this.updateImages()
+    var interval_ID = setInterval(() => {
+      if (document.querySelector('.te-container')) {
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
+        this.setState({
+          counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
+          randNum: arr[this.state.counter]
+        })
+        this.importFile()
+        this.showNext()
+        this.handleClassAdding()
+        this.updateImages()
+      }
+      else {
+        console.log("no");
+        clearInterval(interval_ID);
+      }
     }, 4000)
   }
 
@@ -135,10 +142,12 @@ class Wrapper extends Component {
   }
 
 
-
-
-
   render() {
+    let isUser = this.props.isLoggedIn
+    if (!isUser) {
+      console.log(isUser)
+      return <Redirect to="/" />;
+    }
 
     const Trans = this.props.Trans
     const Imgs = this.props.Imgs

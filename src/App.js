@@ -1,25 +1,58 @@
 import Form from './components/Form';
 import Container from './components/Container';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Component } from 'react';
 
-//TODO: Justa get the string value of src instead of processing the whole img tag in index.html
+class App extends Component {
 
-function App() {
+  constructor() {
+    super();
+    this.state = {
+      isLoggedIn: false,
+      user: {}
+    }
+  }
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path='/'>
-            <Form />
-          </Route>
-          <Route path='/user'>
-            <Container />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+  handleSubmit = (data) => {
+    if (data.username === "Zezo" && data.password === "zzz") {
+      this.setState({
+        isLoggedIn: true,
+        user: data
+      })
+      return true
+    }
+    return false
+  }
+
+  componentDidMount() {
+    window.onpopstate = () => {
+      console.log("triggered")
+      this.setState({
+        isLoggedIn: false,
+        user: {}
+      })
+    }
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route exact
+              path={'/'}
+              render={props => (<Form {...props} handleSuccessfulAuth={this.handleSubmit} />)}
+            />
+            <Route exact
+              path={'/user'}
+              render={props => (<Container {...props} isLoggedIn={this.state.isLoggedIn} />)}
+            />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
