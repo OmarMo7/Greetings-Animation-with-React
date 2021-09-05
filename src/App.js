@@ -3,8 +3,6 @@ import Container from './components/Container';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Component } from 'react';
 
-//TODO: Justa get the string value of src instead of processing the whole img tag in index.html
-
 class App extends Component {
 
   constructor() {
@@ -21,7 +19,9 @@ class App extends Component {
         isLoggedIn: true,
         user: data
       })
+      return true
     }
+    return false
   }
 
   componentDidMount() {
@@ -46,7 +46,7 @@ class App extends Component {
             />
             <Route exact
               path={'/user'}
-              render={props => (<Container {...props} handleSuccessfulAuth={this.handleSubmit} isLoggedIn={this.state.isLoggedIn} />)}
+              render={props => (<Container {...props} isLoggedIn={this.state.isLoggedIn} />)}
             />
           </Switch>
         </BrowserRouter>

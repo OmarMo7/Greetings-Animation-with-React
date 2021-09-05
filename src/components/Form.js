@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-// import { Redirect } from "react-router-dom";
-import axios from 'axios'
 
 class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // isUser: false,
       username: "",
       password: ""
     }
@@ -20,41 +17,17 @@ class Form extends Component {
     console.log(e.target.value)
   }
 
-
-  componentDidMount() {
-
-  }
-
-
   handleSubmit = (e) => {
 
     const { username, password } = this.state;
-
-
-    // axios.post("http://localhost:3000", {
-    //   user: {
-    //     username: username,
-    //     password: password
-    //   }
-    // },
-    //   { withCredentials: true }
-    // ).then(res => {
-    //   console.log("This is the response", res)
-    // }).catch(err => {
-    //   console.log("This is the error", err)
-    // })
     const data = {
       username,
       password
     }
-    axios.get("http://localhost:3000")
-      .then(res => {
-        if (data.username === "Zezo" && data.password === "zzz") {
-          this.props.handleSuccessfulAuth(data)
-          this.props.history.push("/user")
-        }
-        console.log(res)
-      })
+    const isUser = this.props.handleSuccessfulAuth(data)
+    if (isUser) {
+      this.props.history.push("/user")
+    }
 
 
     e.preventDefault();

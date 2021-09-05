@@ -16,15 +16,6 @@ class Wrapper extends Component {
     }
   }
 
-  // shouldComponentUpdate() {
-
-  //   if (!document.querySelector('.te-container')) {
-  //     return false
-  //   }
-  //   console.log("should update")
-  //   return true
-  // }
-
   showNext = () => {
     document.querySelector('.te-cover').classList.add('te-hide')
     document.querySelector('.te-transition').classList.add('te-show')
@@ -151,19 +142,12 @@ class Wrapper extends Component {
   }
 
 
-
-
-
   render() {
     let isUser = this.props.isLoggedIn
     if (!isUser) {
       console.log(isUser)
       return <Redirect to="/" />;
     }
-    // window.onpopstate = () => {
-    //   console.log("triggered");
-    //   <Redirect to={"/"} />
-    // }
 
     const Trans = this.props.Trans
     const Imgs = this.props.Imgs
