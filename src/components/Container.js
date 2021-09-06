@@ -31,6 +31,8 @@ class Container extends Component {
       "te-example6",
       "te-example7"
     ]
+
+    //TODO: Fin a way to dynamically collect the images to Imgs variable instead of collecting them statically from index.html
     var All_Imgs = document.querySelectorAll('.img-transition')
     var Imgs = []
     All_Imgs.forEach(Img => {
