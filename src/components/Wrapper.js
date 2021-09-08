@@ -3,7 +3,7 @@ import Transition from './Transition';
 import Cover from '../Cover';
 import Shadow from './Shadow';
 import { Redirect } from 'react-router';
-
+var interval_ID
 class Wrapper extends Component {
 
   constructor(props) {
@@ -111,22 +111,16 @@ class Wrapper extends Component {
 
   componentDidMount() {
 
-    var interval_ID = setInterval(() => {
-      if (document.querySelector('.te-container')) {
-        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
-        this.setState({
-          counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
-          randNum: arr[this.state.counter]
-        })
-        this.importFile()
-        this.showNext()
-        this.handleClassAdding()
-        this.updateImages()
-      }
-      else {
-        console.log("no");
-        clearInterval(interval_ID);
-      }
+    interval_ID = setInterval(() => {
+      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
+      this.setState({
+        counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
+        randNum: arr[this.state.counter]
+      })
+      this.importFile()
+      this.showNext()
+      this.handleClassAdding()
+      this.updateImages()
     }, 4000)
   }
 
@@ -141,6 +135,10 @@ class Wrapper extends Component {
       this.setState({ last: this.state.current, current: this.state.current + 1 })
   }
 
+  componentWillUnmount() {
+    console.log("no");
+    clearInterval(interval_ID);
+  }
 
   render() {
     let isUser = this.props.isLoggedIn

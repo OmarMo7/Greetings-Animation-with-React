@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
+import Snowflake from './snow'
+import Text from './Text'
+// import backIntervalID from '../background';
+
 
 class Container extends Component {
   constructor(props) {
@@ -31,11 +35,19 @@ class Container extends Component {
       "te-example6",
       "te-example7"
     ]
-    var All_Imgs = document.querySelectorAll('.img-transition')
+
+    var All_Imgs = ["%PUBLIC_URL%/../images/Mostafa Sun.jpg",
+      "%PUBLIC_URL%/../images/Mostafa Nady.jpg",
+      "%PUBLIC_URL%/../images/Mostafa Group.jpg",
+      "%PUBLIC_URL%/../images/Eloksor Mostafa.jpg",
+      "%PUBLIC_URL%/../images/El mssassa.jpg",
+      "%PUBLIC_URL%/../images/Like.jpg",
+      "%PUBLIC_URL%/../images/Infront Helton.jpg"]
     var Imgs = []
+
     All_Imgs.forEach(Img => {
       var content = {
-        img: Img.src,
+        img: Img,
         width: 329,
         height: 425
       };
@@ -49,10 +61,19 @@ class Container extends Component {
   }
 
   render() {
-
+    // if (!this.props.isLoggedIn) {
+    //   clearInterval(backIntervalID)
+    //   console.log("cleared")
+    // }
+    // else {
+    //   console.log("set")
+    //   setInterval(backIntervalID, 4000)
+    // }
     return (
       <div className="te-container">
+        <Snowflake isLoggedIn={this.props.isLoggedIn} />
         <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} isLoggedIn={this.props.isLoggedIn} />
+        <Text isLoggedIn={this.props.isLoggedIn} />
       </div>
     )
   }
