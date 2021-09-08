@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   handleSubmit = (data) => {
-    if (data.username === "Zezo" && data.password === "zzz") {
+    if ((data.username === "Darsh" || data.username === "darsh") && data.password === "zzz") {
       this.setState({
         isLoggedIn: true,
         user: data
