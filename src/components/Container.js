@@ -36,13 +36,15 @@ class Container extends Component {
       "te-example7"
     ]
 
-    var All_Imgs = ["%PUBLIC_URL%/../images/Baby.png",
-      "%PUBLIC_URL%/../images/Beauty.png",
-      "%PUBLIC_URL%/../images/Beauty2.jpg",
-      "%PUBLIC_URL%/../images/ghost.jpg",
-      "%PUBLIC_URL%/../images/Looking behind.jpg"]
+    var All_Imgs = ["%PUBLIC_URL%/../images/Mostafa Sun.jpg",
+      "%PUBLIC_URL%/../images/Mostafa Nady.jpg",
+      "%PUBLIC_URL%/../images/Mostafa Group.jpg",
+      "%PUBLIC_URL%/../images/Eloksor Mostafa.jpg",
+      "%PUBLIC_URL%/../images/El mssassa.jpg",
+      "%PUBLIC_URL%/../images/Like.jpg",
+      "%PUBLIC_URL%/../images/Infront Helton.jpg"]
     var Imgs = []
-    
+
     All_Imgs.forEach(Img => {
       var content = {
         img: Img,
@@ -69,7 +71,7 @@ class Container extends Component {
     // }
     return (
       <div className="te-container">
-        {/* <Snowflake isLoggedIn={this.props.isLoggedIn} /> */}
+        <Snowflake isLoggedIn={this.props.isLoggedIn} />
         <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} isLoggedIn={this.props.isLoggedIn} />
         <Text isLoggedIn={this.props.isLoggedIn} />
       </div>
