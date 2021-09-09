@@ -107,23 +107,6 @@ class Container extends Component {
           console.log('helton:', img.status);
         })
     }
-    // Promise
-    //   .all([this.loadImage(All_Imgs.sun),
-    //   this.loadImage(All_Imgs.nady),
-    //   this.loadImage(All_Imgs.group),
-    //   this.loadImage(All_Imgs.oksor),
-    //   this.loadImage(All_Imgs.mssassa),
-    //   this.loadImage(All_Imgs.like),
-    //   this.loadImage(All_Imgs.helton)])
-    //   .then(() => {
-    //     console.log('sun:', All_Imgs.sun.status);
-    //     console.log('nady:', All_Imgs.nady.status);
-    //     console.log('group:', All_Imgs.group.status);
-    //     console.log('oksor:', All_Imgs.oksor.status);
-    //     console.log('mssassa:', All_Imgs.mssassa.status);
-    //     console.log('like:', All_Imgs.like.status);
-    //     console.log('helton:', All_Imgs.helton.status);
-    //   })
   }
 
 
