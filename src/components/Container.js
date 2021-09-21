@@ -32,7 +32,7 @@ var All_Imgs = {
   helton: {
     img: null, path: '%PUBLIC_URL%/../images/Infront Helton.jpg', status: 'none', width: 329,
     height: 425
-  },
+  }
 }
 class Container extends Component {
   constructor(props) {
