@@ -123,7 +123,7 @@ class Wrapper extends Component {
       this.showNext()
       this.handleClassAdding()
       this.updateImages()
-    }, 4000)
+    }, 6000)
   }
 
   randomNumber = (arr, arrLength) => {

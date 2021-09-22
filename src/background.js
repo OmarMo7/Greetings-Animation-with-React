@@ -29,7 +29,7 @@ class Background extends Component {
       Object.assign(document.body.style, styles)
       if (i === colors.length) i = 0
       if (j === width.length) j = 0
-    }, 4000)
+    }, 6000)
   }
 
   componentWillUnmount() {

@@ -49,7 +49,7 @@ class Text extends Component {
       })
       text.textContent = this.state.textContent
       typeWriter.classList.add('typeWriter')
-    }, 4000)
+    }, 6000)
   }
 
 
