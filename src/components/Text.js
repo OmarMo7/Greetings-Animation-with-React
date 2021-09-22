@@ -1,23 +1,34 @@
 import React, { Component } from 'react'
 var textIntervalID
 class Text extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       textContent: "",
       counter: 0,
-      messages: ["🐱‍💻🤑💸 أيام جولد يابن عمى الهكر"
-        , '😊 ماحلى اللمة والصحبة الحلوة'
-        , '😔 اللى بيروح الأقصر وميقوليش.. زعلان منك '
-        , '🍭😂 المصاصة لا تزال فى جيبى يا دررش'
-        , '🎉 ربنا يكرمك بالنجاح كل يوم والتانى'
-        , ' 🤩💞 وكل سنة وانت طيب يا ابو العظمة'
-        , '😂😉 صاحب ال19 🤩.. أراهن أنك فاكر دى']
+      messages: ''
+    }
+  }
+
+  detectUser = (username) => {
+    switch (username) {
+      case "Amr":
+      case "amr":
+        this.setState({ messages: this.props.messages.Amr })
+        break;
+      case "Darsh":
+      case "darsh":
+        this.setState({ messages: this.props.messages.Mostafa })
+        break;
+
+      default:
+        break;
     }
   }
 
   componentDidMount() {
 
+    this.detectUser(this.props.username)
     var typeContainer = document.querySelector('.typeContainer')
     var typeWriter = document.createElement('div')
     var text = document.createElement('div')
