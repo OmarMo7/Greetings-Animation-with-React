@@ -14,7 +14,9 @@ class App extends Component {
   }
 
   handleSubmit = (data) => {
-    if ((data.username === "Darsh" || data.username === "darsh") && data.password === "mmm") {
+    if (((data.username === "Darsh" || data.username === "darsh") && data.password === "mmm") || 
+      ((data.username === "Amr" || data.username === "amr") && data.password === "aaa")
+    ) {
       this.setState({
         isLoggedIn: true,
         user: data
@@ -46,7 +48,7 @@ class App extends Component {
             />
             <Route exact
               path={'/user'}
-              render={props => (<Container {...props} isLoggedIn={this.state.isLoggedIn} />)}
+              render={props => (<Container {...props} isLoggedIn={this.state.isLoggedIn} username={this.state.user.username} />)}
             />
           </Switch>
         </BrowserRouter>

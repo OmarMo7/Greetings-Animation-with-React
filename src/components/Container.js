@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import Wrapper from './Wrapper'
 import Snowflake from './snow'
 import Text from './Text'
+import Background from '../background'
 // import backIntervalID from '../background';
 
-var All_Imgs = {
+var Mostafa = {
   sun: {
     img: null, path: '%PUBLIC_URL%/../images/Mostafa Sun.jpg', status: 'none', width: 329,
     height: 425
@@ -33,6 +34,50 @@ var All_Imgs = {
     img: null, path: '%PUBLIC_URL%/../images/Infront Helton.jpg', status: 'none', width: 329,
     height: 425
   }
+}
+
+var Amr = {
+  doctor: {
+    img: null, path: '%PUBLIC_URL%/../images/Doctor amr.jpg', status: 'none', width: 329,
+    height: 425
+  },
+  me: {
+    img: null, path: '%PUBLIC_URL%/../images/Me Amr.jpg', status: 'none', width: 329,
+    height: 425
+  },
+  guyz: {
+    img: null, path: '%PUBLIC_URL%/../images/Guyz.jpg', status: 'none', width: 329,
+    height: 425
+  },
+  h5h: {
+    img: null, path: '%PUBLIC_URL%/../images/h5h.jpg', status: 'none', width: 329,
+    height: 425
+  },
+  run: {
+    img: null, path: '%PUBLIC_URL%/../images/Amr runner.jpg', status: 'none', width: 329,
+    height: 425
+  },
+  alone: {
+    img: null, path: '%PUBLIC_URL%/../images/Amr alone.jpg', status: 'none', width: 329,
+    height: 425
+  }
+}
+
+var messages = {
+  Mostafa: ["🐱‍💻🤑💸 أيام جولد يابن عمى الهكر"
+    , '😊 ماحلى اللمة والصحبة الحلوة'
+    , '😔 اللى بيروح الأقصر وميقوليش.. زعلان منك '
+    , '🍭😂 المصاصة لا تزال فى جيبى يا دررش'
+    , '🎉 ربنا يكرمك بالنجاح كل يوم والتانى'
+    , ' 🤩💞 وكل سنة وانت طيب يا ابو العظمة'
+    , '😂😉 صاحب ال19 🤩.. أراهن أنك فاكر دى']
+  ,
+  Amr: ["🍭😂 الدكتور عموور.. البالطو يليق بك يا كبيير"
+    , '😔🤦‍♂️😉 مش عارف ليه مش لاقى صورة غيرها معاك '
+    , '😁😁 تلات سنين ودى الصورة الوحيدة لينا احنا الاربعة '
+    , '🍭🤪😂 مستحيل تكون فاكر المسخرة دى'
+    , '🎉🤗🏃‍♂️ طلعنا زملا يا برنس وكنا بنجرى سوا'
+    , '🤩💞 واحشنى كتير يعموور..😊 وكل سنة وانت علطول طيب']
 }
 class Container extends Component {
   constructor(props) {
@@ -67,14 +112,24 @@ class Container extends Component {
 
     var Imgs = []
 
-    Imgs = [All_Imgs.sun,
-    All_Imgs.nady,
-    All_Imgs.group,
-    All_Imgs.oksor,
-    All_Imgs.mssassa,
-    All_Imgs.like,
-    All_Imgs.helton]
 
+    if (this.props.username === "Amr" || this.props.username === "amr") {
+      Imgs = [Amr.alone,
+      Amr.doctor,
+      Amr.me,
+      Amr.guyz,
+      Amr.h5h,
+      Amr.run]
+    }
+    else if (this.props.username === "Darsh" || this.props.username === "darsh") {
+      Imgs = [Mostafa.sun,
+      Mostafa.nady,
+      Mostafa.group,
+      Mostafa.oksor,
+      Mostafa.mssassa,
+      Mostafa.like,
+      Mostafa.helton]
+    }
     this.state = {
       Trans,
       Imgs
@@ -92,31 +147,23 @@ class Container extends Component {
     });
   }
 
-  resolveLoading = () => {
-    for (let img in All_Imgs) {
-      if (All_Imgs.hasOwnProperty(img)) continue;
+  resolveLoading = (Imgs) => {
+    for (let img in Imgs) {
+      if (Imgs.hasOwnProperty(img)) continue;
       Promise
         .all([this.loadImage(img)])
-        .then(() => {
-          console.log('sun:', img.status);
-          console.log('nady:', img.status);
-          console.log('group:', img.status);
-          console.log('oksor:', img.status);
-          console.log('mssassa:', img.status);
-          console.log('like:', img.status);
-          console.log('helton:', img.status);
-        })
     }
   }
 
 
   render() {
-    this.resolveLoading()
+    this.resolveLoading(this.state.Imgs)
     return (
       <div className="te-container">
+        <Background isLoggedIn={this.props.isLoggedIn} />
         <Snowflake isLoggedIn={this.props.isLoggedIn} />
         <Wrapper Trans={this.state.Trans} Imgs={this.state.Imgs} isLoggedIn={this.props.isLoggedIn} />
-        <Text isLoggedIn={this.props.isLoggedIn} />
+        <Text isLoggedIn={this.props.isLoggedIn} username={this.props.username} messages={messages} />
       </div>
     )
   }
