@@ -4,6 +4,7 @@ import Cover from '../Cover';
 import Shadow from './Shadow';
 import { Redirect } from 'react-router';
 var interval_ID
+
 class Wrapper extends Component {
 
   constructor(props) {
@@ -110,11 +111,12 @@ class Wrapper extends Component {
    */
 
   componentDidMount() {
-
     interval_ID = setInterval(() => {
-      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 21, 23]
+      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+        , 17, 18, 19, 20, 21, 22, 23]
       this.setState({
-        counter: (this.state.counter + 1 === arr.length) ? 0 : this.state.counter + 1,
+        counter: (this.state.counter + 1 === arr.length) ? 0 :
+          this.state.counter + 1,
         randNum: arr[this.state.counter]
       })
       this.importFile()
@@ -132,7 +134,10 @@ class Wrapper extends Component {
     const ImgsLength = this.props.Imgs.length
     this.state.current === ImgsLength - 1 ?
       this.setState({ current: 0, last: ImgsLength - 1 }) :
-      this.setState({ last: this.state.current, current: this.state.current + 1 })
+      this.setState({
+        last: this.state.current,
+        current: this.state.current + 1
+      })
   }
 
   componentWillUnmount() {
@@ -156,7 +161,6 @@ class Wrapper extends Component {
 
     return (
       <div className="te-wrapper">
-
         <Cover Imgs={Imgs} current={this.state.current} />
         <Shadow />
         <Transition transName={transName} randNum={this.state.randNum}

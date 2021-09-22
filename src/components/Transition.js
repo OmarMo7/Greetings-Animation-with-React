@@ -24,13 +24,6 @@ class Transition extends Component {
     }
   }
 
-
-
-  componentDidMount() {
-
-  }
-
-
   render() {
     switch (this.state.transName) {
       case 'te-flip':
