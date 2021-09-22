@@ -14,13 +14,14 @@ class App extends Component {
   }
 
   handleSubmit = (data) => {
-    if (((data.username === "Darsh" || data.username === "darsh") && data.password === "mmm") || 
+    if (((data.username === "Darsh" || data.username === "darsh") && data.password === "mmm") ||
       ((data.username === "Amr" || data.username === "amr") && data.password === "aaa")
     ) {
       this.setState({
         isLoggedIn: true,
         user: data
       })
+      document.querySelector('title').textContent = `${data.username}'s Birthday`;
       return true
     }
     return false
